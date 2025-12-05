@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+    <input type="button" id="start" value="Start Timer"><br>
+    <input type="button" id="stop" value="Stop Timer"><br>
+    <input type="button" id="reset" value="Reset Timer"><br>
+    <div id="time"></div>
+    <script>
+        // adding the event listeners
+        document.getElementById("start").addEventListener("click", startTimer)
+        document.getElementById("stop").addEventListener("click", stopTimer)
+        document.getElementById("reset").addEventListener("click", resetTimer)
+        let countID;
+        // creating the number that will be the interval
+        let num = 0
+        // creating function for when you click the start button
+        function startTimer() {
+            countID = setInterval(count, 1000);
+        }
+        // creating function for stop button
+        function stopTimer() {
+            clearInterval(countID);
+        }
+        // function for reset button
+        function resetTimer() {
+            num = 0
+            document.getElementById("time").innerHTML = num
+        }
+        // function for incrementing the interval
+        function count() {
+            num +=1
+            document.getElementById("time").innerHTML = num
+        }
+    </script>
+</body>
+</html>
